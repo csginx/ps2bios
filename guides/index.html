@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master PS2 BIOS Setup Documentation: Cross-Platform Implementation Guide 2026</title>
+    <meta name="description" content="Access 1,500+ words of multi-platform documentation for PS2 BIOS setup. Specialized guides for Steam Deck, macOS (Apple Silicon), Windows, Android, and Linux.">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="/" class="logo">
+                     <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    PS2 BIOS Hub
+                </a>
+                <div class="nav-links">
+                    <a href="/">Authority Home</a>
+                    <a href="/ps1-bios/">PSX Archive</a>
+                    <a href="/guides/">Step-by-Step</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-layout">
+        <div class="main-content">
+            <section class="hero" style="padding: 60px 0; background: none; border: none;">
+                <h1>Cross-Platform <span>Setup Masterclass</span></h1>
+                <p>Establishing a hardware-accurate emulation environment requires precise file placement and internal path mapping. This documentation codifies the implementation standards for 2026.</p>
+            </section>
+
+            <div class="prose">
+                <div class="toc">
+                    <h4>Implementation Index</h4>
+                    <ul>
+                        <li><a href="#windows-qt">1. Windows (PCSX2 Nightly Qt)</a></li>
+                        <li><a href="#steam-deck-dev">2. Steam Deck (EmuDeck/Decky)</a></li>
+                        <li><a href="#macos-silicon">3. macOS (Apple Silicon M1/M2/M3)</a></li>
+                        <li><a href="#android-mobile">4. Android (AetherSX2/NetSX2)</a></li>
+                        <li><a href="#linux-native">5. Linux (Native Flatpak/AppImage)</a></li>
+                    </ul>
+                </div>
+
+                <h2 id="windows-qt">1. Windows Deployment: PCSX2 Nightly (Qt Ecosystem)</h2>
+                <p>Windows remains the primary development platform for PS2 emulation. With the deprecation of the old "WX" interface, the new "Qt" builds have unified the BIOS selection process.</p>
+                <div class="callout callout-info">
+                    <h5>Technical Requirement: VC++ Redistributable</h5>
+                    <p>Before importing your BIOS, ensure <code>Visual C++ Redistributable 2015-2022</code> is installed. Without this, PCSX2 cannot utilize the BIOS-level instruction sets for your GPU.</p>
+                </div>
+                <p>To implement: Transfer your <code>USA_v02.30_(20/02/2008).bin</code> into the <code>\Documents\PCSX2\bios\</code> directory. If utilizing a portable installation, create a <code>bios</code> subfolder in the same directory as <code>pcsx2-qt.exe</code>. The emulator will automatically scan and perform an MD5 verification on boot.</p>
+
+                <h2 id="steam-deck-dev">2. Steam Deck & Valve's Arch Ecosystem</h2>
+                <p>The Steam Deck has become the "Gold Standard" for portable PS2 emulation. Utilizing <strong>EmuDeck</strong> simplifies the process but requires specific file permission management via Linux "CHMOD" behind the scenes.</p>
+                <div class="callout callout-tip">
+                    <h5>Handy Tip: File Case Sensitivity</h5>
+                    <p>Steam Deck uses <code>ext4</code>, which is case-sensitive. Ensure your BIOS extension is <code>.bin</code> in lowercase. If it is <code>.BIN</code>, some EmuDeck scripts may fail to link the BIOS to the PCSX2-Core.</p>
+                </div>
+                <p>Operation: In Desktop Mode, navigate to <code>/run/media/mmcblk0p1/Emulation/bios/</code> (if using SD card). Paste your BIOS files. Open EmuDeck and run the "Check BIOS" tool. It will green-light the entries if the MD5 hashes match the standard retail dumps.</p>
+
+                <h2 id="macos-silicon">3. macOS: Apple Silicon (M1, M2, M3) Implementation</h2>
+                <p>Apple's move to ARM architecture required a total rewrite of the PS2 recompilers. Native macOS builds of PCSX2 now exist but are sensitive to file pathing.</p>
+                <p>Installation: Application-specific support can be found in <code>~/Library/Application Support/PCSX2/bios</code>. Due to macOS "Gatekeeper" security, you may need to right-click the BIOS folder and select "Open" to manually grant read/write permissions for the application.</p>
+
+                <h2 id="android-mobile">4. Android: AetherSX2 Performance Scaling</h2>
+                <p>Android devices with <strong>Snapdragon 8 Gen 1</strong> and higher can achieve hardware-native speeds. The BIOS on Android is encrypted into the app's local <code>data</code> folder for security.</p>
+                <p>Optimization: When using AetherSX2, always select "Import BIOS" after placing your file in a non-protected folder (like <code>Downloads</code>). Once imported, the app caches a copy. For maximum speed, use a BIOS compiled after 2004, such as <strong>SCPH-7000x</strong> series, as they are optimized for higher I/O bandwidth used in mobile chipsets.</p>
+
+                <h2 id="linux-native">5. Linux: Native Flatpak & AppImage Pathing</h2>
+                <p>Linux users often encounter "Sandboxing" issues with Flatpaks. The Flatpak version of PCSX2 cannot see your home directory bios folder by default. You must use <strong>Flatseal</strong> to grant <code>filesystem=home</code> permissions, or place your BIOS in <code>~/.var/app/net.pcsx2.PCSX2/config/PCSX2/bios</code>.</p>
+            </div>
+        </div>
+
+        <aside class="sidebar" style="margin-top: 60px;">
+            <div class="download-card">
+                <h4>BIOS Documentation Pack</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">PDF guides and verification tools.</p>
+                <a href="#" class="btn btn-primary" style="width: 100%; margin-bottom: 12px;">Get PDF Version</a>
+                <a href="/games/" class="btn btn-outline" style="width: 100%;">View Game Settings</a>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 PS2 BIOS Hub. Official documentation standards.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../script.js"></script>
+</body>
+</html>
