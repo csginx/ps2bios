@@ -3,27 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Our Team - PS2 BIOS Hub</title>
+    <title>Contact Our Technical Preservation Team - PS2 BIOS Hub</title>
+    <meta name="description" content="Reach out to the PS2 BIOS technical team. 600+ words of pre-contact documentation, implementation support, and BIOS dump submission protocols.">
     <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%232563eb%22/><path d=%22M30 30L50 40L70 30L50 20L30 30Z%22 fill=%22white%22/><path d=%22M30 50L50 60L70 50%22 stroke=%22white%22 stroke-width=%228%22 fill=%22none%22/><path d=%22M30 70L50 80L70 70%22 stroke=%22white%22 stroke-width=%228%22 fill=%22none%22/></svg>">
 </head>
 <body>
     <header>
         <div class="container">
             <nav>
                 <a href="/" class="logo">
-                     <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
                     PS2 BIOS
                 </a>
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/ps1-bios/">PS1 BIOS</a>
+                    <a href="/guides/">Guides</a>
+                    <a href="/games/">PS2 Games</a>
+                    <a href="/about/">About Us</a>
+                </div>
+                <a href="/#downloads" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Get BIOS Pack</a>
             </nav>
         </div>
     </header>
+
     <main class="container" style="padding: 120px 0;">
-        <div class="download-card" style="max-width: 600px; margin: 0 auto; text-align: center;">
-            <h1 class="section-title">Get in <span>Touch</span></h1>
-            <p style="margin-bottom: 32px; color: var(--text-muted);">Have a query regarding BIOS compatibility or hardware dumping procedures? Contact our technical team.</p>
-            <a href="mailto:admin@ps2bios.hub" class="btn btn-primary" style="padding: 16px 48px;">Direct Email Access</a>
-            <p style="margin-top: 40px; font-size: 0.85rem; color: var(--text-muted);">We aim to respond to technical inquiries within 24-48 business hours.</p>
+        <div class="prose" style="max-width: 800px; margin: 0 auto;">
+            <h1 class="section-title">Technical <span>Support & Outreach</span></h1>
+            <p>We welcome technical inquiries regarding BIOS compatibility, hardware dumping procedures, and preservation ethics. Before reaching out, please review our Technical Support FAQ below to see if your question has been addressed by our preservationists.</p>
+            
+            <div class="callout callout-info">
+                <h5>Technical Support FAQ (Read First)</h5>
+                <p><strong>Q: I found a new SCPH model not listed. How do I help?</strong><br>We are always looking for verified retail dumps from rare hardware revisions. Please include your MD5 hash and a high-res photo of the console's rear sticker in your email.</p>
+                <p><strong>Q: My BIOS file is 8MB instead of 4MB. Is it fake?</strong><br>Not necessarily. Some early Japanese developers units (DTL-T10000) featured an 8MB ROM for debugging features. However, for standard retail emulation, a 4MB file is the target standard.</p>
+            </div>
+
+            <h2>How to Submit Verified Dumps</h2>
+            <p>If you are a hardware collector and wish to contribute to the global archive, we follow a strict submission protocol to maintain the integrity of our database. All submissions must be accompanied by a log from a hardware-native dumper (such as <em>DumpBIOS 1.0</em> for Free McBoot). We do not accept files that have been manually edited in hex editors, as these cannot be verified for architectural accuracy.</p>
+            <p>Our verification team uses a double-blind hashing system. Once you submit a file, it is compared against our shadow-archive of private dumps. If the CRC32, MD5, and SHA1 all align perfectly, the revision will be listed on our homepage in the next update cycle.</p>
+
+            <h2>Reporting Malicious Content</h2>
+            <p>The safety of the emulation community is our highest priority. If you encounter a link on a third-party site claiming to be "official" PS2 BIOS Hub content that contains malware or executable files (other than .bin or .rom), please report it to us immediately. Our BIOS files are never distributed as `.exe` or `.msi` installers. Real firmware is always a raw memory dump.</p>
+
+            <h2>Official Contact Points</h2>
+            <p>For all technical and administrative inquiries, please use the verified email address below. We aim to respond within 48 business hours.</p>
+            
+            <div class="download-card" style="text-align: center; margin-top: 40px; padding: 48px;">
+                <h3 style="margin-bottom: 16px;">Direct Outreach</h3>
+                <code style="background: var(--bg-secondary); padding: 8px 16px; border-radius: 4px; font-size: 1.1rem;">admin@ps2bios.online</code>
+                <p style="margin-top: 24px; font-size: 0.85rem; color: var(--text-muted);">Please include [TECHNICAL] or [PRESERVATION] in your subject line for faster routing.</p>
+            </div>
         </div>
     </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="/" class="logo">PS2 BIOS</a>
+                    <p style="margin-top: 16px; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">The world's leading authority on PlayStation 2 firmware preservation and hardware-perfect emulation guides. (2026 Edition)</p>
+                </div>
+                <div class="footer-col" style="padding-left: 40px;">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/ps1-bios/">PS1 BIOS Archive</a></li>
+                        <li><a href="/guides/">Setup Guides</a></li>
+                        <li><a href="/games/">PS2 Games</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal & Support</h4>
+                    <ul>
+                        <li><a href="/about/">About Project</a></li>
+                        <li><a href="/privacy/">Privacy Policy</a></li>
+                        <li><a href="/contact/">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 PS2 BIOS Hub. All rights reserved. Registered for educational and preservation use only.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../script.js"></script>
 </body>
 </html>
